@@ -30,7 +30,6 @@ namespace ListaPresencaAPP.Controllers
                 MessageBox.Show("Ocorreu um erro ao adicionar a aula: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public override void Atualizar(Aula entidade)
         {
             string query = "UPDATE Aula " +
@@ -55,7 +54,6 @@ namespace ListaPresencaAPP.Controllers
                 MessageBox.Show("Ocorreu um erro ao atualizar a aula: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public override void Deletar(int id)
         {
             string query = "UPDATE Aula SET Ativo = 0 WHERE Id = @Id;";
@@ -71,8 +69,6 @@ namespace ListaPresencaAPP.Controllers
                 MessageBox.Show("Ocorreu um erro ao desativar a aula: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
         public override Aula ObterPorId(int id)
         {
             string query = "SELECT Id, Disciplina, Data, Horario, Ativo " +
@@ -142,7 +138,6 @@ namespace ListaPresencaAPP.Controllers
 
             return aulasAtivas;
         }
-
         public List<Aula> ListarAulasInativas(int? programaId = null)
         {
             List<Aula> aulasInativas = new();
@@ -221,8 +216,6 @@ namespace ListaPresencaAPP.Controllers
 
             return todasAulas;
         }
-
-
     }
 
 }
