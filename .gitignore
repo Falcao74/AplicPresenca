@@ -1,0 +1,34 @@
+﻿# Diretórios de saída de compilação
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+
+# Arquivos temporários e de cache
+.vs/
+*.user
+*.suo
+*.cache
+*.bak
+*.resharper
+
+# Arquivos de configuração de usuário
+*.sln.docstates
+
+# Cache do Visual Studio Code
+.vscode/
+
+# Pacotes NuGet
+*.nupkg
+
+# Logs
+*.log
+
+# Arquivos de saída do Windows Forms Designer
+Form1.Designer.cs
+Form1.resx
+
+# Arquivo de propriedades (app.properties)
+app.properties

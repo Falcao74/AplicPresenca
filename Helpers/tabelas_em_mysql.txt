@@ -1,0 +1,54 @@
+-- Tabela Aluno
+CREATE TABLE Aluno (
+    Matricula INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    DataNascimento DATE NOT NULL,
+    Ativo BOOLEAN NOT NULL
+);
+
+-- Tabela Aula
+CREATE TABLE Aula (
+    Id INT PRIMARY KEY,
+    Disciplina VARCHAR(100) NOT NULL,
+    Data DATE NOT NULL,
+    Horario VARCHAR(50) NOT NULL,
+    Ativo BOOLEAN NOT NULL
+);
+
+-- Tabela ListaPresenca
+CREATE TABLE ListaPresenca (
+    Id INT PRIMARY KEY,
+    DataCriacao DATETIME NOT NULL,
+    IdAula INT NOT NULL,
+    IdProfessor INT NOT NULL,
+    FOREIGN KEY (IdAula) REFERENCES Aula(Id),
+    FOREIGN KEY (IdProfessor) REFERENCES Professor(Id)
+);
+
+-- Tabela AlunoAula (representa o relacionamento "muitos-para-muitos" entre Aluno e Aula)
+CREATE TABLE AlunoAula (
+    IdAluno INT NOT NULL,
+    IdAula INT NOT NULL,
+    PRIMARY KEY (IdAluno, IdAula),
+    FOREIGN KEY (IdAluno) REFERENCES Aluno(Matricula),
+    FOREIGN KEY (IdAula) REFERENCES Aula(Id)
+);
+
+-- Tabela Professor
+CREATE TABLE Professor (
+    Id INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Titulo VARCHAR(50) NOT NULL,
+    Ativo BOOLEAN NOT NULL
+);
+
+-- Tabela ProfessorAula (representa o relacionamento "muitos-para-muitos" entre Professor e Aula)
+CREATE TABLE ProfessorAula (
+    IdProfessor INT NOT NULL,
+    IdAula INT NOT NULL,
+    PRIMARY KEY (IdProfessor, IdAula),
+    FOREIGN KEY (IdProfessor) REFERENCES Professor(Id),
+    FOREIGN KEY (IdAula) REFERENCES Aula(Id)
+);
